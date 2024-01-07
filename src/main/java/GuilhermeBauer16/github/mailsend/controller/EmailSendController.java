@@ -1,10 +1,10 @@
 package GuilhermeBauer16.github.mailsend.controller;
 
+import GuilhermeBauer16.github.mailsend.MailSendApplication;
+import GuilhermeBauer16.github.mailsend.dto.MailDetailsDTO;
 import GuilhermeBauer16.github.mailsend.service.EmailService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.security.auth.Subject;
@@ -24,4 +24,9 @@ public class EmailSendController {
                            String[] cc , String subject , String body){
         return emailService.sendMail(file,to,cc,subject,body);
     }
+
+//    @PostMapping("/send")
+//    public String sendMail(@RequestBody MailDetailsDTO mailDetailsDTO){
+//        return emailService.sendMail(mailDetailsDTO);
+//    }
 }
