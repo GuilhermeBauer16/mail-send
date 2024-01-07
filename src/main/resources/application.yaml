@@ -1,8 +1,8 @@
 spring:
   mail:
     host: smtp.gmail.com
-    username: testaapimail@gmail.com
-    password: yrhd buau zqls sffq
+    username: ${USER_MAIL}
+    password: ${USER_PASSWORD}
     port: 587
     properties:
       mail:
