@@ -1,17 +1,15 @@
 package GuilhermeBauer16.github.mailsend.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@Builder
+@Getter
+@Setter
 public class NotificationMail {
 
-    private String email;
-    private String cc;
-
+    private String[] cc;
+    private String subject;
+    private String body;
 }
