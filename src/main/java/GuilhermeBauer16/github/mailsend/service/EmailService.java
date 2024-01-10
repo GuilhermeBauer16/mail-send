@@ -41,8 +41,8 @@ public class EmailService implements EmailServiceContract {
             mimeMessageHelper.setText(data.getBody());
             if (file != null) {
                 for (MultipartFile image : file) {
-                    ByteArrayResource byteArrayResources = new ByteArrayResource(image.getBytes());
-                    mimeMessageHelper.addAttachment(image.toString(),
+                    ByteArrayResource byteArrayResources = new ByteArrayResource(image.getBytes(),  "application/octet-stream");
+                    mimeMessageHelper.addAttachment(image.getOriginalFilename(),
                             byteArrayResources);
                 }
             }
