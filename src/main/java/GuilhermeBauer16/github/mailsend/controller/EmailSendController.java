@@ -25,12 +25,6 @@ public class EmailSendController {
     }
 
 
-//    @PostMapping("/send")
-//    public String sendMail(@RequestParam(value = "file", required = false)MultipartFile[] file, String  to ,
-//                           String[] cc , String subject , String body){
-//        return emailService.sendMail(file,to,cc,subject,body);
-//    }
-
     @PostMapping(value = "/send" , consumes = "multipart/form-data")
     public ResponseEntity<String> sendMail(NotificationMailDTO notificationMailDTO,
                                            @RequestPart(name = "file", required = false)MultipartFile[] file) {

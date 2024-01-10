@@ -13,5 +13,4 @@ public class NotificationMail {
     private String[] cc;
     private String subject;
     private String body;
-    private MultipartFile[] imagePath;
 }
