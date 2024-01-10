@@ -1,19 +1,20 @@
 package GuilhermeBauer16.github.mailsend.dto;
 
-import GuilhermeBauer16.github.mailsend.model.NotificationMail;
+
 import jakarta.validation.constraints.NotBlank;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.multipart.MultipartFile;
 
 public record NotificationMailDTO(
 
-        @NotBlank
+
         String[] cc,
 
-        @NotBlank
+
         String subject,
 
-        @NotBlank
-        String body) {
+
+        String body,
+        MultipartFile[] imagePath) {
 
 
 }

@@ -7,9 +7,11 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class NotificationMail {
 
     private String[] cc;
     private String subject;
     private String body;
+    private MultipartFile[] imagePath;
 }

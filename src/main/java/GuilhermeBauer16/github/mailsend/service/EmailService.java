@@ -3,11 +3,22 @@ package GuilhermeBauer16.github.mailsend.service;
 import GuilhermeBauer16.github.mailsend.model.NotificationMail;
 import GuilhermeBauer16.github.mailsend.service.contract.EmailServiceContract;
 import jakarta.mail.MessagingException;
+import jakarta.mail.Multipart;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 
 @Service
 public class EmailService implements EmailServiceContract {
@@ -15,12 +26,12 @@ public class EmailService implements EmailServiceContract {
     private String fromEmail;
     private final JavaMailSender javaMailSender;
 
-    public EmailService( JavaMailSender javaMailSender) {
+    public EmailService(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
     }
 
     @Override
-    public void sendMail(NotificationMail data) {
+    public void sendMail(NotificationMail data, MultipartFile[] file) {
         try {
             MimeMessage mimeMessage = this.javaMailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
@@ -28,23 +39,20 @@ public class EmailService implements EmailServiceContract {
             mimeMessageHelper.setSubject(data.getSubject());
             mimeMessageHelper.setCc(data.getCc());
             mimeMessageHelper.setText(data.getBody());
-//            Path path = Paths.get(data.getImagePath());
-//            byte[] imageBytes = Files.readAllBytes(path);
-//            String fileName = path.getFileName().toString();
-//            InputStreamSource imageSource = new ByteArrayResource(imageBytes);
-//            mimeMessageHelper.addAttachment(fileName, imageSource);
+            if (file != null) {
+                for (MultipartFile image : file) {
+                    ByteArrayResource byteArrayResources = new ByteArrayResource(image.getBytes());
+                    mimeMessageHelper.addAttachment(image.toString(),
+                            byteArrayResources);
+                }
+            }
+
 
             javaMailSender.send(mimeMessage);
 
-        } catch (MessagingException e) {
+        } catch (MessagingException | IOException e) {
             throw new RuntimeException(e);
         }
 
-
     }
-//    String sendMail(MailDetailsDTO mailDetailsDTO);
-
-//    String sendMail(MultipartFile[] file, String to, String[] cc, String subject, String body);
-//
-//    MultipartFile sendImageEmail(MultipartFile multipartFile, MimeMessage mimeMessage);
 }

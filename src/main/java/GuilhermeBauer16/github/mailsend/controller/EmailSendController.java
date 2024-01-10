@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/mail")
@@ -30,10 +31,11 @@ public class EmailSendController {
 //        return emailService.sendMail(file,to,cc,subject,body);
 //    }
 
-    @PostMapping("/send")
-    public ResponseEntity sendMail(@RequestBody @Valid NotificationMailDTO notificationMailDTO) {
+    @PostMapping(value = "/send" , consumes = "multipart/form-data")
+    public ResponseEntity<String> sendMail(NotificationMailDTO notificationMailDTO,
+                                           @RequestPart(name = "file", required = false)MultipartFile[] file) {
 
-        emailService.sendMail(notificationMailService.createNotificationEmail(notificationMailDTO));
+        emailService.sendMail(notificationMailService.createNotificationEmail(notificationMailDTO), file);
         return ResponseEntity.ok().build();
     }
 }
