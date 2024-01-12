@@ -16,12 +16,12 @@ import java.io.IOException;
 
 
 @Service
-public class EmailService implements EmailServiceContract {
+public class MailService implements EmailServiceContract {
     @Value("${spring.mail.username}")
     private String fromEmail;
     private final JavaMailSender javaMailSender;
 
-    public EmailService(JavaMailSender javaMailSender) {
+    public MailService(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
     }
 

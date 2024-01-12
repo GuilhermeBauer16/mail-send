@@ -5,10 +5,8 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.tags.Tag;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import java.util.List;
 
-import static io.swagger.v3.core.util.AnnotationsUtils.getInfo;
 
 @Configuration
 public class OpenApiConfig {
