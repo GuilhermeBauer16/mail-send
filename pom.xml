@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>GuilhermeBauer16.github</groupId>
 	<artifactId>mail-send</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>mail-send</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

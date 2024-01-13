@@ -1,5 +1,7 @@
-FROM open-jdk:17
+FROM openjdk:17-jdk-alpine
 
-LABEL authors="guilherme"
+WORKDIR /app
 
-ENTRYPOINT ["top", "-b"]
+COPY . .
+
+ENTRYPOINT ["java", "-jar" , "mail-send-1.0.0.jar"]
