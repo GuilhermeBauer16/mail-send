@@ -13,7 +13,7 @@ The mail send API that the user sends a mail to another user with a subject, tit
 ## Learning 
 In that project, I learned how to use the Java Mail Sender library. How to create the file aplication.properties using the extension .yaml, and which to attribute ENV(environment variable) in my project for better security. I learned how to use the SOLID architecture to create a directory contract and implement the interface on the other class, like a contract attributing only one function for each class.
 
-## Functions
+## Functions     
 
 * Send mail to another person or people;
 * Send mail with images;
