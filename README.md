@@ -1,7 +1,7 @@
 # Mail send                                                                             
                    
 ## Objective                                   
-The mail send API that the user sends a mail to another user with a subject, title, and image.                
+The mail send API that the user sends a mail to another user with a subject, title, and image.                   
 
 ## Working example.        
 ![Screenshot from 2024-01-14 20-10-48](https://github.com/GuilhermeBauer16/mail-send/assets/123701893/f14e1941-b3fd-49dd-a972-c1f1b6fac331)
