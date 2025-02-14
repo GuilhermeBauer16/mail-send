@@ -5,7 +5,7 @@ The mail send API that the user sends a mail to another user with a subject, tit
 
 ## Working example.        
 ![Screenshot from 2024-01-14 20-10-48](https://github.com/GuilhermeBauer16/mail-send/assets/123701893/f14e1941-b3fd-49dd-a972-c1f1b6fac331)
-
+      
 
 ![Screenshot from 2024-01-14 18-49-36](https://github.com/GuilhermeBauer16/mail-send/assets/123701893/1784c9b6-abc0-44f0-a4f0-757be8a39ab2)
 
