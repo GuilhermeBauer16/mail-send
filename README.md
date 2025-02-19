@@ -17,7 +17,7 @@ In that project, I learned how to use the Java Mail Sender library. How to creat
 
 * Send mail to another person or people;
 * Send mail with images;
-
+   
 ## Swagger 
 * link: http://localhost:8080/swagger-ui/index.html 
 
